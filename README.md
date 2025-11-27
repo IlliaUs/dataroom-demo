@@ -72,19 +72,9 @@ No accidental mutations
 
 Reducer is easy to audit when multiple operations modify nested state (e.g. deleting a folder and all its children)
 
-### Why not Redux / Zustand?
-
-For this scale:
-
-Context + reducer already gives predictable state control
-
-No async actions / thunks / effects are needed
-
-No server-synced state
-
 For an in-memory local demo, Context + reducer is the simplest and cleanest tool.
 
-Data model
+### Data model
 
 The data layer is normalized (IDs instead of nested objects):
 
@@ -122,29 +112,6 @@ This makes the limitation obvious and keeps the implementation focused on fronte
 Auth is intentionally mocked using a single flag in localStorage:
 
 localStorage.setItem("demo-auth", "true")
-
-
-Instead of:
-
-OAuth
-
-JWT
-
-cookies
-
-server-side sessions
-
-Because:
-
-The goal is to demonstrate protected routing and “logged-in vs logged-out” flow
-
-Real auth would add a lot of boilerplate not relevant for the demo
-
-localStorage is deterministic, easy to inspect, and works across reloads
-
-No backend is required
-
-This makes the “auth” layer transparent and keeps the focus on app structure and UX.
 
 ### Routing
 
